@@ -1,0 +1,55 @@
+.product-box
+
+.product-box-title
+	font: 700 1.6rem/1em $helvetica
+
+
+.product-detail-figure
+	+span-columns(12)
+	margin: 0
+
+
+.product-detail-largeimage
+	+span-columns(7)
+
+	+media($mobile)
+		+span-columns(1 of 1)
+
+
+.product-detail-description
+	+span-columns(5)
+
+	+media($mobile)
+		+span-columns(1 of 1)
+
+
+
++direction-context(right-to-left)
+	.product-actions
+		+span-columns(5)
+		+row()
+
+
+	.product-detail-price
+		+span-columns(12)
+		text-align: right
+
+
+	.place-buttons,
+	.product-detail-place-button
+		+span-columns(6)
+
+		.btn-cta-ok
+			+span-columns(12)
+
+
+
+
+
+
+
+
+
+
+
+

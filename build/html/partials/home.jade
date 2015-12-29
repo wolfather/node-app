@@ -1,0 +1,17 @@
+.home
+
+	.products
+
+		.product-box(data-ng-repeat='item in home.products')
+			figure.product-box-figure
+				a(href='#/produto/{{item._id}}')
+					img.product-box-product-image(
+						item-prop='image'
+						src='assets/images/products/{{item.img.medium}}'
+						alt='{{item.alias}}')
+					
+				figcaption.product-box-caption
+					a.product-box-name(href='#/produto/{{item._id}}') {{item.alias}}
+					a.product-box-short-description(href="#/produto/{{item._id}}") {{item.description.shortDesc}}
+
+				p.product-box-price(item-prop='price') {{item.price}}

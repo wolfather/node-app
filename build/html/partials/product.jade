@@ -1,0 +1,24 @@
+h1.product-box-title {{detail.product.product.alias}}
+
+
+div(productboxdetail
+	alias='detail.product.product.alias'
+	image='detail.product.product.img'
+	description='detail.product.product.description')
+
+
+.product-actions
+	p.product-detail-price(item-prop="price") {{detail.product.product.price}}
+
+
+	.place-buttons
+		span(ng-click="detail.sumLength()") mais
+		span(ng-click="detail.subLength()") menos
+
+
+	.product-detail-place-button
+		a.btn-cta-ok(ahref='#/checkout'
+			ng-click="detail.addproduct()") adicionar
+
+
+

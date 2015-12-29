@@ -1,0 +1,44 @@
+include ./_mixins.jade
+-var port = '3100'
+-var server = 'http://127.0.0.1:'+ port
+-var environment = 1 //0 production - 1 development
+-var filesPath = environment ? server+'/build/' : server+'/dev/'
+
+doctype html
+html(lang='pt-BR')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport'
+			content='width=device-width, initial-scale=1')
+		
+		title Pismo
+
+		link(rel='stylesheet'
+			href='#{filesPath}css/app.main.css'
+			type="text/css")
+
+	body(ng-app='app')
+
+		header.header-row
+
+			a.logo-link(href='#/home')
+				img.logo-image(src='http://127.0.0.1:3100/assets/images/products/large-1.jpg')
+
+		.main(data-role='window')
+			
+			block content
+
+
+
+
+
+
+		block inputScripts
+		
+		+onescript()
+
+
+
+
+
+
