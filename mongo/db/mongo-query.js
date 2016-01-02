@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose'),
 	serverUrl = 'mongodb://localhost/',
-	dbName = 'pismodb'
+	dbName = 'db'
 
 
 var schemaproduct = require('../schema/schemaproduct'),

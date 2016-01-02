@@ -30,10 +30,6 @@ module.exports = (urlRequested)=> {
 	
 	return extAllowed.map((e)=> {
 		switch(extname) {
-			case(e.key !== file) :
-				//console.log(`${file} isn\`t allowed`);
-				return 0
-				break
 
 			case(e.key === file) :
 				//console.log(`is allowed ${e.type} ${urlRequested}`)

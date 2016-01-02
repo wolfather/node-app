@@ -1,11 +1,11 @@
 {
-  "name": "pismo",
+  "name": "node-app",
   "description": "",
   "main": "gulpfile.js",
   "authors": [
     "wolfather <so.israelweb@gmail.com>"
   ],
-  "license": "ISC",
+  "license": "MIT",
   "moduleType": [],
   "homepage": "",
   "ignore": [

@@ -1,5 +1,5 @@
 {
-  "name": "pismo",
+  "name": "node-app",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
@@ -23,6 +23,6 @@
     "supervisor": "^0.9.1"
   },
   "dependencies": {
-    "mongoose": "^4.3.1"
+    "mongoose": "^4.3.4"
   }
 }
