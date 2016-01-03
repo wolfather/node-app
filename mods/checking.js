@@ -24,7 +24,7 @@ module.exports = ()=> {
 
 				else{
 					console.log(`Let me install all dependecies now`)
-					exec('npm i && supervisor test.js', (error, stdout, stderr)=> {
+					exec('sudo npm i && bower install && gulp build && supervisor app.js', (error, stdout, stderr)=> {
 			
 						if(stdout[1] < 4) {
 							console.log(`stdout: ${stdout[1]}`)

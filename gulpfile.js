@@ -1,7 +1,6 @@
 'use strict';
 
 const gulp = require('gulp'),
-	//olha = require('gulp-watch'),
 	compass = require('gulp-compass'),
 	jade = require('gulp-jade'), 
 	ngAnnotate = require('gulp-ng-annotate'),
@@ -62,7 +61,7 @@ gulp
 	.task('devlint', ()=> {
 		return gulp.src('dev/js/**/*.js')
 			.pipe(jshint())
-			.pipe(jshint.reporter('default'));
+			.pipe(jshint.reporter('default'))
 			//.pipe(jshint.reporter('jshint-stylish'))
 			//.pipe(jshint.reporter('fail'));
 	})
@@ -82,5 +81,5 @@ gulp
 				css: 'build/css',
 				sass: 'dev/sass'
 			}))
-		.pipe(gulp.dest('dev/sass'));
+		.pipe(gulp.dest('dev/sass'))
 	})

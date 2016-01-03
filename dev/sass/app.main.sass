@@ -1,6 +1,6 @@
-@import '../bourbonio/bourbon/bourbon'
-@import '../bourbonio/neat/neat'
-@import '../bourbonio/base/base'
+@import '../components/bourbon/app/assets/stylesheets/bourbon'
+@import '../components/neat/app/assets/stylesheets/neat'
+@import '../components/bitters/app/assets/stylesheets/base'
 
 @import 'components/variables'
 @import 'components/component-header'
@@ -11,6 +11,9 @@
 @import 'components/buttons'
 
 
+body
+	display: table
+	margin: 0
 
 .main
 	+span-columns(10 of 12)

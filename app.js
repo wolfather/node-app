@@ -1,13 +1,12 @@
-'use strict';
+'use strict'
 const http = require('http'),
 	fs = require('fs'),
 	path = require('path'),
 	url = require('url'),
-	server = 'http://127.0.0.1',
-	port = process.env.PORT || 3100,
 	mongo = require('./mongo/db/mongo-query'),
-	ext = require('./mods/ext-allowed'),
-	querystring = require('querystring');
+	querystring = require('querystring'),
+	config = require('./mods/config'),
+	ext = require('./mods/ext-allowed')
 
 mongo.connection()
 mongo.createMockup()
@@ -17,9 +16,9 @@ http.createServer((request, response)=> {
 	let file = '.' + request.url,
 		extension = ext(request.url)
 
-	if(request.method === 'POST') {
+	if('POST' === request.method) {
 
-		if( (/alterqtdy.json/gi).test('.'+request.url) ) {
+		if( (/alterqtdy.json/gi).test(file) ) {
 			
 			let urlParams = url.parse(request.url, true).query,
 				subQtdy = (prodQtdy, userQtdy)=> prodQtdy - userQtdy
@@ -28,39 +27,47 @@ http.createServer((request, response)=> {
 				console.log('byid', product.qtdy)
 
 				mongo.updateProd(urlParams.id, subQtdy(product.qtdy, urlParams.qtdy), (data)=> {
-					response.writeHead(200, {'Content-Type': extension.type})
+					response.writeHead(200,
+						'Content-Type', extension.type,
+						'Cache-Control', 'no-cache'
+					)
 					response.end(JSON.stringify({product: data}))
 				})
 			})
 			
 		}
 
-
 	}
 
-	else if(request.method === 'GET') {
-		if((/home.json/gi).test('.'+request.url) ) {
+	else if('GET' === request.method) {
+		if((/home.json/gi).test(file) ) {
 
 			mongo.findall((data)=> {
-				response.writeHead(200, {'Content-Type': extension.type})
+				response.writeHead(200,
+					'Content-Type', extension.type,
+					'Cache-Control', 'no-cache')
+
 				response.end(JSON.stringify({product: data}))
 			})
 
 		}
-		else if( (/produto.json/gi).test('.'+request.url) ) {
+		else if((/produto.json/gi).test(file)) {
 			
 			let queryId = url.parse(request.url, true).query.id
 
 			mongo.byId(queryId, (data)=> {
-				response.writeHead(200, {'Content-Type': extension.type})
+				response.writeHead(200,
+					'Content-Type', extension.type,
+					'Cache-Control', 'no-cache')
+				
 				response.end(JSON.stringify({product: data}))
 			})
 
 		}
 		
-		else{
+		else {
 
-			if (file === './') {
+			if(file === './') {
 				file = './build/html/index.html'
 			}
 
@@ -85,6 +92,6 @@ http.createServer((request, response)=> {
 	}
 
 
-}).listen(port, ()=> {
-	console.log(`Server listen ${port}`)
+}).listen(config.port, ()=> {
+	console.log(`Server is running at ${config.server} and listen ${config.port} port`)
 })

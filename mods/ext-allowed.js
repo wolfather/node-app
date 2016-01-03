@@ -8,7 +8,6 @@ let img = 'image/',
 	extAllowed = [
 	{key: '.json',	type : 'application/json', 	charset: 'utf-8'},
 	{key: '.js',	type : txt+'javascript', 	charset: 'utf-8'},
-	//{key: '.css',	type : txt+'plain', 		charset: 'utf-8'},
 	{key: '.css',	type : txt+'html', 			charset: 'utf-8'},
 	{key: '.txt',	type : txt+'plain', 		charset: 'utf-8'},
 	{key: '.html',	type : txt+'html', 			charset: 'utf-8'},
@@ -36,7 +35,9 @@ module.exports = (urlRequested)=> {
 				return e
 				break
 			
-			default: break
+			default: 
+				return 0
+			break
 		}
 	})
 	
