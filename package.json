@@ -1,15 +1,28 @@
 {
   "name": "node-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "Simple app made with node js, mongodb and angularjs, not using express framework (now)",
+  "author": "Israel <so.israelweb@gmail.com>",
+  "main": "app.js",
   "scripts": {
     "start": "supervisor app",
     "postinstall": "bower install && && compass compile && gulp build",
     "init": "node mods/checking.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wolfather/node-app"
+  },
+  "bugs": {
+    "url": "https://github.com/wolfather/node-app/issues"
+  },
+  "keywords": [
+    "nodejs",
+    "mongoose",
+    "angularjs"
+  ],
+  "analyse": true,
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",
